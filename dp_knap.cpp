@@ -7,7 +7,6 @@ void knapsack01(const vector<int>& profit, const vector<int>& weight, int W) {
 
   vector<vector<int>> dp(N + 1, vector<int>(W + 1, 0));
 
-
   for (int i = 1; i <= N; ++i) {
     for (int w = 1; w <= W; ++w) {
       if (weight[i-1] <= w) {
@@ -17,7 +16,6 @@ void knapsack01(const vector<int>& profit, const vector<int>& weight, int W) {
       }
     }
   }
-
 
   vector<int> selected_items;
   int w = W;
