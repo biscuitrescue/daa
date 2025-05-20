@@ -3,19 +3,19 @@
 using namespace std;
 
 bool isSafe(int v, const vector<vector<int>>& graph, vector<int>& color, int c) {
-    int n = graph.size();
-    for (int i = 0; i < n; ++i) {
-        if (graph[v][i] && color[i] == c) {
-            return false; // Adjacent vertex has same color
-        }
+  int n = graph.size();
+  for (int i = 0; i < n; ++i) {
+    if (graph[v][i] && color[i] == c) {
+      return false;
     }
-    return true;
+  }
+  return true;
 }
 
 bool graphColoringUtil(const vector<vector<int>>& graph, int m, vector<int>& color, int v) {
-    int n = graph.size();
+  int n = graph.size();
   if (v == n) {
-    return true; // All vertices colored
+    return true;
   }
 
   for (int c = 1; c <= m; ++c) {
@@ -24,11 +24,10 @@ bool graphColoringUtil(const vector<vector<int>>& graph, int m, vector<int>& col
       if (graphColoringUtil(graph, m, color, v + 1)) {
         return true;
       }
-      // Backtrack
       color[v] = 0;
     }
   }
-  return false; // No color assignment possible
+  return false;
 }
 
 void graphColoring(const vector<vector<int>>& graph, int m) {
