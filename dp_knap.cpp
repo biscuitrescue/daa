@@ -2,7 +2,6 @@
 #include <vector>
 using namespace std;
 
-
 void knapsack01(const vector<int>& profit, const vector<int>& weight, int W) {
   int N = profit.size();
 
